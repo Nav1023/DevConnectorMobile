@@ -9,7 +9,7 @@ export default class NavigationRouter extends  React.PureComponent {
     return (
         <Router>
             <Stack key="root">
-              <Scene key="home" component={Landing} />
+              <Scene key="home" component={Landing} hideNavBar={true} />
             </Stack>
         </Router>
     );
