@@ -1,7 +1,33 @@
 import React, { Component } from 'react'
-import { Text, View, Button, ImageBackground, Dimensions} from 'react-native'
+import { Text, View, Button, ImageBackground, Dimensions, StyleSheet, Platform} from 'react-native'
 import MyButton from '../atom/MyButton';
 import RootView from '../organism/RootView';
+import { verticalScale, horizontalScale } from '../../utils/DevConnectorMobileStyleSheet';
+
+
+
+const styles = StyleSheet.create({
+  text: {
+    display:'flex',
+    alignItems:'center',
+    fontWeight:Platform.OS==='android'?'bold':'800', 
+    color:'white', 
+    justifyContent:'center'
+  },
+  loginStyle: {
+    paddingTop: verticalScale(40),
+    paddingLeft: horizontalScale(25),
+    paddingRight: horizontalScale(25),
+    flexDirection: 'row',
+    justifyContent: 'center',
+    },
+  button:{
+      backgroundColor: 'transparent', 
+      borderColor: 'white', 
+      borderWidth: 1,
+      width: horizontalScale(140)
+    }
+});
 
 class Landing extends Component {
 
@@ -26,28 +52,27 @@ class Landing extends Component {
           <ImageBackground  
             source={require('../../assests/image/background.jpeg')}
             style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height, backgroundColor: 'rgba(255,0,0)'}}
-            imageStyle={{opacity: 0.7}}
+            
           >
             <View style={{alignItems:'center', justifyContent:'center', marginTop: 100}}>
-              <Text style={{fontSize:40, fontWeight:'bold', color:'white', marginTop:50}}> Developer Connector </Text>
-              <Text style={{marginHorizontal:30,display:'flex',
-                  alignItems:'center', fontWeight:'bold', color:'white', justifyContent:'center'}}> Create a developer profile/portfolio,</Text>
-              <Text style={{marginHorizontal:30,display:'flex',
-                  alignItems:'center', fontWeight:'bold', color:'white', justifyContent:'center'}}> share posts and get help from other developers.</Text>
+              <Text style={[styles.text, { fontSize:35, marginTop: verticalScale(80), marginHorizontal: horizontalScale(17)}]}> Developer Connector </Text>
+              <Text style={[styles.text, {marginHorizontal:40}]}> Create a developer profile/portfolio,</Text>
+              <Text style={[styles.text, {marginHorizontal:40}]}> share posts and get help from other developers.</Text>
             </View>
-            
-            <MyButton
-              title="Login"
-              onPress = {onUpdate}
-              style = {{  backgroundColor: '#f4f4f4', marginTop: 250 }}
-              textStyle = {{ color: 'black'}}
-            />
-            <MyButton
-              title="Register"
-              onPress = {onUpdate}
-              style = {{  backgroundColor: '#17a2b8', marginTop: 10}}
-              textStyle = {{ color: '#FFFFFF'}}
-            />
+            <View style={[styles.loginStyle, {marginTop: verticalScale(200)} ]}>
+              <MyButton
+                title="Login"
+                onPress = {onUpdate}
+                style = {[styles.button]}
+                textStyle = {{ color: 'white'}}
+              />
+              <MyButton
+                title="Register"
+                onPress = {onUpdate}
+                style = {[styles.button, { backgroundColor:'#fcffda', borderWidth:0, marginLeft: horizontalScale(10)} ]}
+                textStyle = {{ color: '#000000'}}
+              />
+            </View>
           </ImageBackground>
         </View>
     );
