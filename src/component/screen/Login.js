@@ -42,11 +42,8 @@ class Login extends Component {
           password: ''
         }; 
         onUpdate = () => {
-            if(this.state.email === 'Hide')
-            this.setState({email: 'Show'});
-            else
-            this.setState({email: 'Hide'});
-        }
+            console.log('Landing');
+        } 
  }
     
 

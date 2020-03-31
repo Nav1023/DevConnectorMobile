@@ -44,11 +44,8 @@ class Landing extends Component {
       title: 'Hide',
     }; 
     onUpdate = () => {
-      if(this.state.title === 'Hide')
-        this.setState({title: 'Show'});
-      else
-        this.setState({title: 'Hide'});
-    }
+      console.log('Landing');
+   } 
   } 
 
 
@@ -70,13 +67,13 @@ class Landing extends Component {
             <View style={[styles.loginStyle, {marginTop: verticalScale(200)} ]}>
               <MyButton
                 title="Login"
-                onPress = {()=> Actions.push('login')}
+                onPress = {()=> Actions.login()}
                 style = {[styles.button]}
                 textStyle = {{ color: 'white'}}
               />
               <MyButton
                 title="Register"
-                onPress = {()=> Actions.push('register')}
+                onPress = {()=> Actions.register()}
                 style = {[styles.button, { backgroundColor:'#fff8e5', borderWidth:0, marginLeft: horizontalScale(10)} ]}
                 textStyle = {{ color: '#000000'}}
               />

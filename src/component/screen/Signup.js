@@ -44,11 +44,8 @@ class SignUp extends Component {
           confirmPassword:''
         }; 
         onUpdate = () => {
-            if(this.state.email === 'Hide')
-            this.setState({email: 'Show'});
-            else
-            this.setState({email: 'Hide'});
-        }
+            console.log('Landing');
+        } 
  }
     
 
