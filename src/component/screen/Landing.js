@@ -3,7 +3,8 @@ import { Text, View, Button, ImageBackground, Dimensions, StyleSheet, Platform} 
 import MyButton from '../atom/MyButton';
 import RootView from '../organism/RootView';
 import { verticalScale, horizontalScale } from '../../utils/DevConnectorMobileStyleSheet';
-
+import LinearGradient from 'react-native-linear-gradient';
+import { Actions } from 'react-native-router-flux';
 
 
 const styles = StyleSheet.create({
@@ -26,7 +27,13 @@ const styles = StyleSheet.create({
       borderColor: 'white', 
       borderWidth: 1,
       width: horizontalScale(140)
-    }
+    },
+    linearGradient: {
+      flex: 1,
+      paddingLeft: 15,
+      paddingRight: 15,
+      borderRadius: 5
+    },
 });
 
 class Landing extends Component {
@@ -36,44 +43,45 @@ class Landing extends Component {
     this.state = { 
       title: 'Hide',
     }; 
-
     onUpdate = () => {
       if(this.state.title === 'Hide')
         this.setState({title: 'Show'});
       else
         this.setState({title: 'Hide'});
     }
-} 
+  } 
+
+
 
   render() {
      const {title} = this.state
     return (
-        <View >
-          <ImageBackground  
-            source={require('../../assests/image/background.jpeg')}
-            style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height, backgroundColor: 'rgba(255,0,0)'}}
-            
-          >
-            <View style={{alignItems:'center', justifyContent:'center', marginTop: 100}}>
-              <Text style={[styles.text, { fontSize:35, marginTop: verticalScale(80), marginHorizontal: horizontalScale(17)}]}> Developer Connector </Text>
-              <Text style={[styles.text, {marginHorizontal:40}]}> Create a developer profile/portfolio,</Text>
-              <Text style={[styles.text, {marginHorizontal:40}]}> share posts and get help from other developers.</Text>
+        <View style={{ flex:1 }}>
+          <LinearGradient 
+           colors={['#363640', '#5a5a82', '#363640']} 
+           style={styles.linearGradient}
+           start={{x: 0.1, y: 0.1}} end={{x: 1.2, y: 0.}}
+        >
+            <View style={{alignItems:'center', justifyContent:'center', marginTop: verticalScale(100)}}>
+              <Text style={[styles.text, { fontSize:35, marginTop: verticalScale(80), marginHorizontal: horizontalScale(5)}]}> Developer Connector </Text>
+              <Text style={[styles.text, {marginHorizontal:horizontalScale(20)}]}> Create a developer profile/portfolio,</Text>
+              <Text style={[styles.text, {marginHorizontal:horizontalScale(20)}]}> share posts and get help from other developers.</Text>
             </View>
             <View style={[styles.loginStyle, {marginTop: verticalScale(200)} ]}>
               <MyButton
                 title="Login"
-                onPress = {onUpdate}
+                onPress = {()=> Actions.push('login')}
                 style = {[styles.button]}
                 textStyle = {{ color: 'white'}}
               />
               <MyButton
                 title="Register"
-                onPress = {onUpdate}
-                style = {[styles.button, { backgroundColor:'#fcffda', borderWidth:0, marginLeft: horizontalScale(10)} ]}
+                onPress = {()=> Actions.push('register')}
+                style = {[styles.button, { backgroundColor:'#fff8e5', borderWidth:0, marginLeft: horizontalScale(10)} ]}
                 textStyle = {{ color: '#000000'}}
               />
             </View>
-          </ImageBackground>
+          </LinearGradient>
         </View>
     );
   }
