@@ -41,14 +41,34 @@ class Login extends Component {
           email: '',
           password: ''
         }; 
-        onUpdate = () => {
-            console.log('Landing');
-        } 
+  }
+ onLoginPress = () => {
+  console.log('Login Pressed');
+ } 
+ renderTextField({label, value, onChangetext, secureEntry}){
+       return( <MyTextField
+          label = {label}
+          value = {value}
+          onChangeText = {onChangetext}
+          secureEntry={secureEntry}
+        />
+       )
  }
-    
 
   render() {
-    const {email, password} = this.state
+    const {email, password} = this.state;
+    const EmailField = {
+       label:'Enter Email',
+       value:email, 
+       onChangeText: null, 
+       secureEntry:false
+      };
+    const PasswordField = {
+      label:'Password',
+      value:password, 
+      onChangeText: null, 
+      secureEntry:true 
+      };
     return (
       <View style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height}}>
         <LinearGradient 
@@ -61,20 +81,11 @@ class Login extends Component {
                 <Text style={[styles.text, { fontSize:20, marginTop: verticalScale(10), marginHorizontal: horizontalScale(20)}]}>Glad to see you back</Text>
             </View>
             <View style={{marginTop: verticalScale(70), marginHorizontal: horizontalScale(20)}}>
-                <MyTextField
-                  label = 'Enter Email'
-                  value = {email}
-                  onChangeText = {onUpdate}
-                /> 
-                <MyTextField
-                    label = 'Password'
-                    value = {password}
-                    onChangeText = {onUpdate}
-                    secureEntry={true}
-                />
+                {this.renderTextField(EmailField)}
+                {this.renderTextField(PasswordField)}
               <MyButton
                 title="Login"
-                onPress = {onUpdate}
+                onPress = {this.onLoginPress}
                 style = {[styles.button, {shadowColor:'#515a5a', backgroundColor:'#fff8e5', marginHorizontal: horizontalScale(60)}]}
                 textStyle = {{ color: 'black'}}
               />

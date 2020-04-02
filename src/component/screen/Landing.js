@@ -43,10 +43,15 @@ class Landing extends Component {
     this.state = { 
       title: 'Hide',
     }; 
-    onUpdate = () => {
-      console.log('Landing');
-   } 
+   
   } 
+  onLogInPress = ()=>{
+    Actions.push('login');
+  }
+  
+ onRegisterPress = ()=>{
+   Actions.push('register');
+ }
 
 
 
@@ -67,13 +72,13 @@ class Landing extends Component {
             <View style={[styles.loginStyle, {marginTop: verticalScale(200)} ]}>
               <MyButton
                 title="Login"
-                onPress = {()=> Actions.login()}
+                onPress = {this.onLogInPress}
                 style = {[styles.button]}
                 textStyle = {{ color: 'white'}}
               />
               <MyButton
                 title="Register"
-                onPress = {()=> Actions.register()}
+                onPress = {this.onRegisterPress}
                 style = {[styles.button, { backgroundColor:'#fff8e5', borderWidth:0, marginLeft: horizontalScale(10)} ]}
                 textStyle = {{ color: '#000000'}}
               />

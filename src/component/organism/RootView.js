@@ -8,7 +8,7 @@ class RootView extends Component {
     return (
       <View>
        <Image 
-         source={require('../../assests/image/showcase.jpg')}
+         source={require('../../assets/image/showcase.jpg')}
          style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height}}/>
       </View>
     );
