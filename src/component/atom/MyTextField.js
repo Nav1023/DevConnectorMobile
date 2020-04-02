@@ -9,20 +9,20 @@ import {
   
   export default MyTextField = (props) => {
       // const { title = 'Enter', style = {}, textStyle = {} } = this.props;
-        const { secureEntry=false, errorMessage="" } = props;
+        const { secureEntry=false, errorMessage="", baseColor = '#FFFFFF' } = props;
+        // console.log("Email",props);
       return (
           <View >
               <OutlinedTextField 
                label={props.label}
                value = {props.value}
                inputContainerStyle = {{ backgroundColor: '#44435a'}}
-               baseColor='#FFFFFF'
+               baseColor={props.baseColor}
                textColor='#FFFFFF'
-               tintColor = '#FFFFFF'
+               tintColor = {props.baseColor}
                onChangeText = {props.onChangeText}
                secureTextEntry={secureEntry} 
                error = {errorMessage}
-               errorColor = '#ff0000'
                />
           </View>
       );
