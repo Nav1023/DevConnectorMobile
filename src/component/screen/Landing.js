@@ -46,11 +46,11 @@ class Landing extends Component {
    
   } 
   onLogInPress = ()=>{
-    Actions.push('login');
+    Actions.replace('login');
   }
   
  onRegisterPress = ()=>{
-   Actions.push('register');
+   Actions.replace('register');
  }
 
 

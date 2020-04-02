@@ -52,7 +52,7 @@ class SignUp extends Component {
     console.log('SignUp Pressed');
   }
   onBackPress =() =>{
-    Actions.pop(); 
+    Actions.replace('landing'); 
   }
 
 

@@ -4,6 +4,10 @@ import { verticalScale, horizontalScale } from '../../utils/DevConnectorMobileSt
 import LinearGradient from 'react-native-linear-gradient';
 import MyTextField from '../atom/MyTextField';
 import MyButton from '../atom/MyButton';
+import CustomIcon from '../atom/CustomIcon';
+import Ripple from '../atom/Ripple';
+import { Actions } from 'react-native-router-flux';
+
 
 const styles = StyleSheet.create({
     text: {
@@ -45,6 +49,9 @@ class Login extends Component {
  onLoginPress = () => {
   console.log('Login Pressed');
  } 
+ onBackPress =() =>{
+  Actions.replace('landing'); 
+}
  renderTextField({label, value, onChangetext, secureEntry}){
        return( <MyTextField
           label = {label}
@@ -76,6 +83,13 @@ class Login extends Component {
            style={styles.linearGradient}
            start={{x: 0.1, y: 0.1}} end={{x: 1.2, y: 0.}}
         >
+           <Ripple  style ={{marginTop: 15, marginLeft: 15, width: verticalScale(50), height:horizontalScale(50)}} onPress={this.onBackPress}>
+            <CustomIcon
+              name='arrow-left'
+              size={25}
+              color={'white'}
+              />
+          </Ripple> 
             <View>
                 <Text style={[styles.text, { fontSize:35, marginTop: verticalScale(80), marginHorizontal: horizontalScale(10)}]}> Sign In </Text>
                 <Text style={[styles.text, { fontSize:20, marginTop: verticalScale(10), marginHorizontal: horizontalScale(20)}]}>Glad to see you back</Text>
