@@ -121,7 +121,7 @@ class Login extends Component {
           style={styles.linearGradient}
           start={{ x: 0.1, y: 0.1 }} end={{ x: 1.2, y: 0. }}
         >
-          <Ripple style={{ marginTop: 15, marginLeft: 15, width: verticalScale(50), height: horizontalScale(50),  borderRadius: 50 }} onPress={this.onBackPress}>
+          <Ripple style={{ marginTop: verticalScale(20), marginLeft: verticalScale(15), width: verticalScale(50), height: horizontalScale(50),  borderRadius: 50 }} onPress={this.onBackPress}>
             <CustomIcon
               name='arrow-left'
               size={25}

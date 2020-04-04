@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   text: {
     display:'flex',
     alignItems:'center',
-    fontWeight:Platform.OS==='android'?'bold':'800', 
+    fontWeight:Platform.OS==='android'?'bold':'700', 
     color:'white', 
     justifyContent:'center'
   },
@@ -65,9 +65,9 @@ class Landing extends Component {
            start={{x: 0.1, y: 0.1}} end={{x: 1.2, y: 0.}}
         >
             <View style={{alignItems:'center', justifyContent:'center', marginTop: verticalScale(100)}}>
-              <Text style={[styles.text, { fontSize:35, marginTop: verticalScale(80), marginHorizontal: horizontalScale(5)}]}> Developer Connector </Text>
-              <Text style={[styles.text, {marginHorizontal:horizontalScale(20)}]}> Create a developer profile/portfolio,</Text>
-              <Text style={[styles.text, {marginHorizontal:horizontalScale(20)}]}> share posts and get help from other developers.</Text>
+              <Text style={[styles.text, { fontSize:30, marginTop: verticalScale(80), marginHorizontal: horizontalScale(5)}]}> Developer Connector </Text>
+              <Text style={[styles.text, { fontSize:12, marginHorizontal:horizontalScale(20)}]}> Create a developer profile/portfolio, share posts </Text>
+              <Text style={[styles.text, { fontSize:12, marginHorizontal:horizontalScale(20)}]}> and get help from other developers.</Text>
             </View>
             <View style={[styles.loginStyle, {marginTop: verticalScale(200)} ]}>
               <MyButton
