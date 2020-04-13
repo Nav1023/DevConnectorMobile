@@ -4,6 +4,7 @@ import {Text, View} from 'react-native';
 import Landing from '../component/screen/Landing';
 import {Router, Stack, Scene} from 'react-native-router-flux';
 import Login from '../component/screen/Login';
+import Profile from '../component/screen/Profile';
 import SignUp from '../component/screen/Signup';
 
 export default class NavigationRouter extends React.PureComponent {
@@ -19,6 +20,7 @@ export default class NavigationRouter extends React.PureComponent {
           />
           <Scene key="login" component={Login} hideNavBar={true} />
           <Scene key="register" component={SignUp} hideNavBar={true} />
+          <Scene key="profile" component={Profile} hideNavBar={true} />
         </Stack>
       </Router>
     );

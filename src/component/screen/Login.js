@@ -166,7 +166,7 @@ class Login extends Component {
               marginLeft: verticalScale(15),
               width: verticalScale(50),
               height: horizontalScale(50),
-              borderRadius: 50,
+              borderRadius: 25,
             }}
             onPress={this.onBackPress}>
             <CustomIcon name="arrow-left" size={25} color={'white'} />

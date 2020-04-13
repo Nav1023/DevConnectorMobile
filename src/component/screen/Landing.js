@@ -60,6 +60,9 @@ class Landing extends Component {
   onRegisterPress = () => {
     Actions.replace('register');
   };
+  onProfilePress = () => {
+    Actions.replace('profile');
+  };
 
   render() {
     const {title} = this.state;
@@ -126,6 +129,19 @@ class Landing extends Component {
               textStyle={{color: '#000000'}}
             />
           </View>
+          <MyButton
+            title="Profile"
+            onPress={this.onProfilePress}
+            style={[
+              styles.button,
+              {
+                backgroundColor: '#fff8e5',
+                borderWidth: 0,
+                marginLeft: horizontalScale(10),
+              },
+            ]}
+            textStyle={{color: '#000000'}}
+          />
         </LinearGradient>
       </View>
     );
