@@ -16,6 +16,7 @@ import {
   horizontalScale,
 } from '../../utils/DevConnectorMobileStyleSheet';
 import Ripple from '../atom/Ripple';
+import {Actions} from 'react-native-router-flux';
 import CustomIcon from '../atom/CustomIcon';
 
 const styles = StyleSheet.create({
@@ -145,6 +146,9 @@ class Profile extends Component {
       return {skillClick: !prevState.skillClick};
     });
   };
+  onBackPress = () => {
+    Actions.replace('landing');
+  };
 
   render() {
     const {skillClick, experienceClick, educationClick} = this.state;
@@ -156,7 +160,22 @@ class Profile extends Component {
           style={styles.linearGradient}
           start={{x: 0.2, y: 0.2}}
           end={{x: 0.2, y: 1.0}}>
-          <View style={{marginTop: verticalScale(50)}}>
+          <Ripple
+            style={{
+              marginTop: verticalScale(20),
+              marginLeft: verticalScale(10),
+              width: verticalScale(50),
+              height: horizontalScale(30),
+              borderRadius: 25,
+            }}
+            onPress={this.onBackPress}>
+            <CustomIcon name="arrow-left" size={25} color={'white'} />
+          </Ripple>
+          <View
+            style={{
+              marginTop: verticalScale(10),
+              marginLeft: horizontalScale(10),
+            }}>
             <Text style={(styles.text, {color: 'white', fontSize: 20})}>
               Name
             </Text>
@@ -182,9 +201,41 @@ class Profile extends Component {
               />
             </View>
             <View>
-              <Text style={(styles.text, {marginBottom: verticalScale(100)})}>
+              <Text style={(styles.text, {marginBottom: verticalScale(10)})}>
                 Bio
               </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginBottom: verticalScale(50),
+                justifyContent: 'center',
+                marginLeft: horizontalScale(30),
+              }}>
+              <CustomIcon
+                name="facebook"
+                size={20}
+                color={'#1c4e9e'}
+                style={{flex: 0.2}}
+              />
+              <CustomIcon
+                name="whatsapp"
+                size={20}
+                color={'#9eb4db'}
+                style={{flex: 0.2}}
+              />
+              <CustomIcon
+                name="instagram"
+                size={20}
+                color={'#edb9c6'}
+                style={{flex: 0.2}}
+              />
+              <CustomIcon
+                name="linkedin"
+                size={20}
+                color={'#0077b5'}
+                style={{flex: 0.2}}
+              />
             </View>
 
             <View style={{marginBottom: verticalScale(350)}}>
@@ -202,7 +253,7 @@ class Profile extends Component {
                   />
                 </View>
               </Ripple>
-              {skillClick ? <View style={styles.card}/> : null}
+              {skillClick ? <View style={styles.card} /> : null}
               <Ripple style={styles.card} onPress={this.onExperiencePress}>
                 <View style={{flexDirection: 'row'}}>
                   <Text style={styles.cardTitle}> Experience</Text>
@@ -232,7 +283,7 @@ class Profile extends Component {
                   />
                 </View>
               </Ripple>
-              {educationClick ? <View style={styles.card}/> : null}
+              {educationClick ? <View style={styles.card} /> : null}
             </View>
           </View>
         </LinearGradient>
