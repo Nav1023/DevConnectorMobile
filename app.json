@@ -1,4 +1,5 @@
 {
   "name": "DevConnectorMobile",
-  "displayName": "DevConnectorMobile"
+  "displayName": "DevConnectorMobile",
+  "BASE_URL": "https://intense-temple-79433.herokuapp.com/"
 }

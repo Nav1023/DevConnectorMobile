@@ -61,20 +61,28 @@ class Login extends Component {
       passwordError: false,
       emailColor: '#FFFFFF',
       passwordColor: '#FFFFFF',
+      isError: true,
     };
   }
+  componentDidMount() {
+    console.log(this.props);
+  }
   onLoginPress = () => {
+    const {login} = this.props;
+    const {isError, email, password} = this.state;
     if (validationRegex.email.test(this.state.email) === false) {
       this.setState({
         emailErrorMessage: 'Please enter a valid email',
         emailError: true,
         emailColor: '#d61818',
+        isError: true,
       });
     } else {
       this.setState({
         emailErrorMessage: '',
         emailError: false,
         emailColor: '#FFFFFF',
+        isError: false,
       });
     }
     if (this.state.password.length < 6) {
@@ -82,13 +90,19 @@ class Login extends Component {
         passwordErrorMessage: 'Password length should be more than 5',
         passwordError: true,
         passwordColor: '#d61818',
+        isError: true,
       });
     } else {
       this.setState({
         passwordErrorMessage: '',
         passwordError: false,
         passwordColor: '#FFFFFF',
+        isError: false,
       });
+    }
+    console.log(isError);
+    if (!isError) {
+      login(email, password);
     }
   };
   onBackPress = () => {

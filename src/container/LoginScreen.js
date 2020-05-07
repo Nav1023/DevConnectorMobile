@@ -1,6 +1,7 @@
 import Login from '../component/screen/Login';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {login} from '../redux/actions/LoginAction';
 
 const mapStateToProps = state => ({
   state,
@@ -9,8 +10,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      //   userSignIn,
-      //   getCountryCodeList,
+      login,
     },
     dispatch,
   );
